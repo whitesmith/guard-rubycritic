@@ -8,15 +8,17 @@ Gem::Specification.new do |spec|
   spec.version       = Guard::RubycriticVersion::VERSION
   spec.authors       = ["Guilherme Simoes"]
   spec.email         = ["guilherme.rdems@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = <<-EOF
+    Ruby Critic is a tool that listens to modifications in Ruby classes, modules and methods and
+    reports any new code smells it finds.
+  EOF
+  spec.summary       = "Listens to modifications and detects smells in Ruby files"
+  spec.homepage      = "https://github.com/GuilhermeSimoes/guard-rubycritic"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files`.split($/)
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ["lib"]
+  spec.files         = Dir.glob("{lib}/**/*") + %w[LICENSE.txt README.md]
+  spec.test_files    = `git ls-files -- test/*`.split("\n")
+  spec.require_path  = "lib"
 
   spec.add_runtime_dependency "guard", "~> 1.8.0"
 
