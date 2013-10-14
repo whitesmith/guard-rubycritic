@@ -1,24 +1,34 @@
 Guard::Rubycritic
 =================
 
-TODO: Write a gem description
+Guard::Rubycritic is a tool that detects and reports smells in Ruby code in real-time.
 
 Installation
 ------------
 
 Add this line to your application's Gemfile:
 
-    gem "guard-rubycritic"
+```ruby
+gem "guard-rubycritic"
+```
 
 And then execute:
 
-    $ bundle
+```bash
+$ bundle
+```
 
-Or install it yourself as:
+Next, generate a default `Guardfile` in your root directory:
 
-    $ gem install guard-rubycritic
+```bash
+$ guard init rubycritic
+```
 
 Usage
 -----
 
-TODO: Write usage instructions here
+Change your `Guardfile` to your heart's content and simply run `guard` to get instant feedback on your code quality:
+
+```bash
+$ guard
+```
