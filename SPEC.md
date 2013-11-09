@@ -38,3 +38,8 @@ Change your `Guardfile` to your heart's content and simply run `guard` to get in
 ```bash
 $ guard
 ```
+
+Features
+--------
+
+Rubycritic currently includes checks for some aspects of Control Couple, Data Clump, Duplication, Feature Envy, Large Class, Long Method, Long Parameter List, Simulated Polymorphism, Uncommunicative Name and more. See the Rubycritic wiki for up to date details of what exactly is checked in your code.

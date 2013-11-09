@@ -1,8 +1,11 @@
 require "guard"
 require "guard/guard"
+require "rubycritic"
 
 module Guard
+
   class Rubycritic < Guard
+    RBFILES = File.join("**", "*.rb").freeze
 
     # Initializes a Guard plugin.
     # Don't do any work here, especially as Guard plugins get initialized even if they are not in an active group!
@@ -14,6 +17,7 @@ module Guard
     #
     def initialize(watchers = [], options = {})
       super
+      @analyser = ::Rubycritic::Analyser.new
     end
 
     # Called once when Guard starts. Please override initialize method to init stuff.
@@ -22,8 +26,9 @@ module Guard
     # @return [Object] the task result
     #
     def start
+      # GET THE INITIAL SCORES
       UI.info "Guard::Rubycritic is critiquing"
-      run_all
+      calculate_scores(Watcher.match_files(self, Dir.glob(RBFILES)))
     end
 
     # Called when `stop|quit|exit|s|q|e + enter` is pressed (when Guard quits).
@@ -43,7 +48,6 @@ module Guard
     # @return [Object] the task result
     #
     def reload
-      true
     end
 
     # Called when just `enter` is pressed
@@ -53,7 +57,6 @@ module Guard
     # @return [Object] the task result
     #
     def run_all
-      # GET THE INITIAL SCORES
     end
 
     # Default behaviour on file(s) changes that the Guard plugin watches.
@@ -72,6 +75,7 @@ module Guard
     #
     def run_on_additions(paths)
       # GET THE INITIAL SCORE OF THE FILES ADDED
+      calculate_scores(paths)
     end
 
     # Called on file(s) modifications that the Guard plugin watches.
@@ -82,6 +86,7 @@ module Guard
     #
     def run_on_modifications(paths)
       # COMPARE THE NEW SCORE WITH THE PREVIOUS SCORE OF THE FILES CHANGED
+      calculate_scores(paths)
     end
 
     # Called on file(s) removals that the Guard plugin watches.
@@ -91,8 +96,14 @@ module Guard
     # @return [Object] the task result
     #
     def run_on_removals(paths)
-      # DO NOTHING?
-      true
+    end
+
+    private
+
+    def calculate_scores(paths)
+      @analyser.pathnames = paths
+      @analyser.analyse
     end
   end
+
 end
