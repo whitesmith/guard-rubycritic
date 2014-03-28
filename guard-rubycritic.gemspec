@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
     reports any new code smells it finds.
   EOF
   spec.summary       = "Listens to modifications and detects smells in Ruby files"
-  spec.homepage      = "https://github.com/GuilhermeSimoes/guard-rubycritic"
+  spec.homepage      = "https://github.com/whitesmith/guard-rubycritic"
   spec.license       = "MIT"
 
   spec.files         = Dir.glob("{lib}/**/*") + %w[LICENSE.txt README.md]
