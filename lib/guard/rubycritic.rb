@@ -1,6 +1,7 @@
 require "guard"
 require "guard/plugin"
 require "rubycritic"
+require "rubycritic/orchestrators/mini"
 
 module Guard
 
@@ -11,7 +12,7 @@ module Guard
     # @return [Object] the task result
     #
     def start
-      @rubycritic = ::Rubycritic::Rubycritic.new
+      @rubycritic = ::Rubycritic::Orchestrator::Mini.new
       UI.info "Guard::Rubycritic is critiquing"
     end
 
