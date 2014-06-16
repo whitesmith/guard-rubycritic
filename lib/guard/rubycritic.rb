@@ -1,7 +1,7 @@
 require "guard"
 require "guard/plugin"
 require "rubycritic"
-require "rubycritic/orchestrators/mini"
+require "rubycritic/reporters/mini"
 
 module Guard
 
@@ -12,7 +12,7 @@ module Guard
     # @return [Object] the task result
     #
     def start
-      @rubycritic = ::Rubycritic::Orchestrator::Mini.new
+      @rubycritic = ::Rubycritic::Orchestrator.new
       UI.info "Guard::Rubycritic is critiquing"
     end
 
@@ -22,7 +22,9 @@ module Guard
     # @return [Object] the task result
     #
     def run_on_changes(paths)
-      UI.info "New critique at #{@rubycritic.critique(paths)}"
+      analysed_files = @rubycritic.critique(paths)
+      report_location = ::Rubycritic::Reporter::Mini.new(analysed_files).generate_report
+      UI.info "New critique at #{report_location}"
     end
   end
 
