@@ -1,7 +1,11 @@
-Guard::Rubycritic
+Guard::RubyCritic
 =================
 
-Guard::Rubycritic is a tool that detects and reports smells in Ruby code in real-time.
+[![Gem Version](https://badge.fury.io/rb/guard-rubycritic.svg)](http://badge.fury.io/rb/guard-rubycritic)
+[![Code Climate](http://img.shields.io/codeclimate/github/whitesmith/guard-rubycritic.svg)](https://codeclimate.com/github/whitesmith/guard-rubycritic)
+
+<img src="http://i.imgur.com/66HACCD.png" alt="RubyCritic Icon" align="right" />
+Guard::RubyCritic is a tool that detects and reports smells in Ruby code in real-time.
 
 Installation
 ------------
@@ -27,8 +31,10 @@ $ guard init rubycritic
 Usage
 -----
 
-Change your `Guardfile` to your heart's content and simply run `guard` to get instant feedback on your code quality:
+Change your `Guardfile` to your heart's content and start it with the following command:
 
 ```bash
 $ guard
 ```
+
+Each time you save a file, that file will be analysed and its report will be available at `YOUR_PROJECT_ROOT/tmp/rubycritic/current_file.html`.
