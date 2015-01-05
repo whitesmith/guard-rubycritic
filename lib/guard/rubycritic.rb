@@ -12,7 +12,7 @@ module Guard
     # @return [Object] the task result
     #
     def start
-      @rubycritic = ::Rubycritic::Orchestrator.new
+      @rubycritic = ::Rubycritic.create
       UI.info "Guard::Rubycritic is critiquing"
     end
 
