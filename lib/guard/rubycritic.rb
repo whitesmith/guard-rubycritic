@@ -1,7 +1,7 @@
 require "guard"
 require "guard/plugin"
 require "rubycritic"
-require "rubycritic/reporters/mini"
+require "rubycritic/generators/html_guard_report"
 
 module Guard
 
@@ -13,6 +13,7 @@ module Guard
     #
     def start
       @rubycritic = ::Rubycritic.create
+      @rubycritic.extend(AdditionalMethodsForGuard)
       UI.info "Guard::Rubycritic is critiquing"
     end
 
@@ -22,10 +23,24 @@ module Guard
     # @return [Object] the task result
     #
     def run_on_changes(paths)
-      analysed_files = @rubycritic.critique(paths)
-      report_location = ::Rubycritic::Reporter::Mini.new(analysed_files).generate_report
+      report_location = report(critique(paths))
       UI.info "New critique at #{report_location}"
     end
+
+    def critique(paths)
+      @rubycritic.paths = paths
+      @rubycritic.critique
+    end
+
+    def report(analysed_modules)
+      ::Rubycritic::Generator::HtmlGuardReport.new(analysed_modules).generate_report
+    end
+  end
+
+  module AdditionalMethodsForGuard
+    # This is necessary to inject new paths into the RubyCritic Command class.
+    # Otherwise we would have to create a new class instance everytime a user changed a file.
+    attr_writer :paths
   end
 
 end
