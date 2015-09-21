@@ -28,6 +28,8 @@ Next, generate a default `Guardfile` in your root directory:
 $ guard init rubycritic
 ```
 
+Commit the changes to the Gemfile and Guardfile, and you're good to go.
+
 Usage
 -----
 
