@@ -12,7 +12,7 @@ module Guard
     # @return [Object] the task result
     #
     def start
-      @rubycritic = ::Rubycritic.create
+      @rubycritic = ::Rubycritic::CommandFactory.create
       @rubycritic.extend(AdditionalMethodsForGuard)
       UI.info "Guard::Rubycritic is critiquing"
     end
