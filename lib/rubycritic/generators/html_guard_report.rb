@@ -1,7 +1,7 @@
 require "rubycritic/generators/html_report"
 require "rubycritic/generators/html/current_code_file"
 
-module Rubycritic
+module RubyCritic
   module Generator
 
     class HtmlGuardReport < HtmlReport

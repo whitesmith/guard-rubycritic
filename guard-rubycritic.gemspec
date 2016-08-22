@@ -5,7 +5,7 @@ require "guard/rubycritic/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "guard-rubycritic"
-  spec.version       = Guard::RubycriticVersion::VERSION
+  spec.version       = Guard::RubyCriticVersion::VERSION
   spec.authors       = ["Guilherme Simoes"]
   spec.email         = ["guilherme.rdems@gmail.com"]
   spec.description   = <<-EOF
@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.require_path  = "lib"
 
   spec.add_runtime_dependency "guard", "~> 2.6"
-  spec.add_runtime_dependency "rubycritic", "~> 2.9"
+  spec.add_runtime_dependency "rubycritic", "~> 2.9.3"
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"

@@ -1,5 +1,5 @@
 module Guard
-  module RubycriticVersion
+  module RubyCriticVersion
     VERSION = "2.9.0"
   end
 end

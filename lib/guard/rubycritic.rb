@@ -5,16 +5,16 @@ require "rubycritic/generators/html_guard_report"
 
 module Guard
 
-  class Rubycritic < Plugin
+  class RubyCritic < Plugin
     # Called once when Guard starts. Please override initialize method to init stuff.
     #
     # @raise [:task_has_failed] when start has failed
     # @return [Object] the task result
     #
     def start
-      @rubycritic = ::Rubycritic::CommandFactory.create
+      @rubycritic = ::RubyCritic::CommandFactory.create
       @rubycritic.extend(AdditionalMethodsForGuard)
-      UI.info "Guard::Rubycritic is critiquing"
+      UI.info "Guard::RubyCritic is critiquing"
     end
 
     # Default behaviour on file(s) changes that the Guard plugin watches.
@@ -33,7 +33,7 @@ module Guard
     end
 
     def report(analysed_modules)
-      ::Rubycritic::Generator::HtmlGuardReport.new(analysed_modules).generate_report
+      ::RubyCritic::Generator::HtmlGuardReport.new(analysed_modules).generate_report
     end
   end
 

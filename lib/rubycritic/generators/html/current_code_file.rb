@@ -1,6 +1,6 @@
 require "rubycritic/generators/html/code_file"
 
-module Rubycritic
+module RubyCritic
   module Generator
     module Html
 
