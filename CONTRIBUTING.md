@@ -43,7 +43,7 @@ You are welcome to clarify how something works or simply fix a typo. Please incl
 Reporting a Bug
 ---------------
 
-If you are experiencing unexpected behavior and, after having read Rubycritic's documentation, are convinced this behavior is a bug, please:
+If you are experiencing unexpected behavior and, after having read RubyCritic's documentation, are convinced this behavior is a bug, please:
 
 1. Search the [issues tracker][6] to see if it was already reported / fixed.
 
