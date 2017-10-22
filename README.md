@@ -5,6 +5,7 @@ Guard::RubyCritic
 [![Code Climate](http://img.shields.io/codeclimate/github/whitesmith/guard-rubycritic.svg)](https://codeclimate.com/github/whitesmith/guard-rubycritic)
 
 <img src="http://i.imgur.com/66HACCD.png" alt="RubyCritic Icon" align="right" />
+
 Guard::RubyCritic is a tool that uses [RubyCritic](https://github.com/whitesmith/rubycritic) to detect and report smells in Ruby code in real-time.
 
 Installation
